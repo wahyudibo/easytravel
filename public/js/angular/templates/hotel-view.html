@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-2">
+        <img ng-src="{{ data.image }}"
+        alt="hotel"
+        style="display: block; margin: 0px auto;">
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                <h4><strong>{{ data.name }}</strong></h4>
+                <i class="fa fa-star" ng-repeat="star in stars"></i>
+                <br />
+                <small>{{ data.address }}</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <i class="fa fa-bed"></i>
+                    <small>Room available : {{ data.room_available }}</small>
+                </div>
+                <div>
+                    <i class="fa fa-user"></i>
+                    <small>Max occupancies : {{ data.max_occupancies }}</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <i class="fa fa-road"></i>
+                    <small>{{ data.distance }} from airport</small>
+                </div>
+                <div>
+                    <i class="fa fa-car"></i>
+                    <small>{{ data.duration }} from airport</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <h3>{{ data.price.total | number}}</h3>
+    </div>
+</div>

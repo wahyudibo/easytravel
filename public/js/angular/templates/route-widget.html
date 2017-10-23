@@ -1,0 +1,17 @@
+<div class="row" ng-show="show">
+    <div class="col-md-12">
+        <div id="routeWidget" class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title">
+                    <i class="fa fa-lg fa-map"></i> Route From Airport to Hotel
+                    <span class="pull-right" ng-hide="done">
+                        <em>Calculating</em> <i class="fa fa-lg fa-spinner fa-spin"></i>
+                    </span>
+                </h1>
+            </div>
+            <div class="panel-body">
+                <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"></ui-gmap-google-map>
+            </div>
+        </div>
+    </div>
+</div>

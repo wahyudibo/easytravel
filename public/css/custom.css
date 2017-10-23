@@ -1,0 +1,70 @@
+.navbar {
+    border-radius: 0;
+    height: 72px;
+}
+
+.navbar-custom {
+    background-color: #337ab7;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #FFF;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    background-color: #0FA6A1;
+}
+
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #FFF;
+    background-color: #0FA6A1;
+}
+
+.navbar-custom .navbar-text {
+    color: #FFF;
+}
+
+.navbar-custom .navbar-toggle {
+    border-color: #0FA6A1;
+}
+
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: #0FA6A1;
+}
+
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+#searchBar {
+    height: 40%;
+    min-height: 40%;
+}
+
+#searchBar form {
+    margin-top: 10px;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.flight-info {
+    margin: 0 auto;
+}
+
+.flight-info td {
+    padding-left: 5px;
+}
+
+.angular-google-map-container {
+    height: 400px;
+}

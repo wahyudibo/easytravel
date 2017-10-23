@@ -1,0 +1,43 @@
+<div class="row" ng-show="show">
+    <div class="col-md-12">
+        <div id="venueWidget" class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title">
+                    <i class="fa fa-lg fa-map-marker"></i> Recommended Venues
+                    <span class="pull-right" ng-hide="done">
+                     <em>Searching</em> <i class="fa fa-lg fa-spinner fa-spin"></i>
+                  </span>
+                </h1>
+            </div>
+            <div class="panel-body" ng-show="done && data.response.length !== 0">
+                <div class="row">
+                    <div class="col-sm-6" ng-repeat="venue in data.response.venues">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img ng-src="{{ venue.icon }}" alt="" class="bg-primary" />
+                                        <h6 class="text-center">{{venue.category}}</h6>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h5><strong>{{ venue.name }}</strong></h5>
+                                        <h6>{{venue.address}}</h6>
+                                        <h6>approx. <strong>{{venue.distance}} m</strong> from hotel</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="panel-body" ng-show="done && data.response.length === 0">
+                <div class="text-center">
+                  <i class="fa fa-5x fa-frown-o"></i>
+                  <br />
+                  <br />
+                  <p class="lead">Sorry, but we cannot find a suitable venues for you at this moment. Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="form-group">
+    <label for="keyword">Keyword</label>
+    <input type="text" class="form-control" name="" id="keyword" placeholder="Fill with address, hotel name or empty value" ng-model="hotel.keyword">
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="checkIn">Check In</label>
+            <div class="input-group">
+                <input
+                type="text"
+                class="form-control"
+                datepicker-popup="{{ dt.format }}"
+                ng-model="hotel.checkIn"
+                min-date="dt.minDate"
+                is-open="dt.checkIn"
+                ng-click="openDatepicker($event, 'checkIn')"
+                />
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="checkIn">Check Out</label>
+            <div class="input-group">
+                <input
+                type="text"
+                class="form-control"
+                datepicker-popup="{{ dt.format }}"
+                ng-model="hotel.checkOut"
+                min-date="dt.minRetDate"
+                is-open="dt.checkOut"
+                ng-click="openDatepicker($event, 'checkOut')"
+                />
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="rooms">Rooms</label>
+            <div class="input-group">
+                <input type="number" class="form-control" ng-model="hotel.rooms">
+                <span class="input-group-addon"><i class="fa fa-bed"></i></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label>Priority</label>
+            <br />
+            <input
+            class="form-control"
+            bs-switch
+            type="checkbox"
+            ng-model="hotel.priority"
+            switch-active="{{ bs.isActive }}"
+            switch-size="{{ bs.size }}"
+            switch-animate="{{ bs.animate }}"
+            switch-on-text="Price"
+            switch-off-text="Near"
+            switch-on-color="{{ bs.on }}"
+            switch-off-color="{{ bs.off }}"
+            ng-true-value="'price'"
+            ng-false-value="'near'">
+        </div>
+        <div class="col-md-4">
+            <label>Rating</label>
+            <br />
+            <rating ng-model="hotel.rating" max="max" state-on="'fa fa-lg fa-star'" state-off="'fa fa-lg fa-star-o'" titles="titles"></rating>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <label>Facilities</label>
+          <div class="row">
+              <div class="col-sm-6">
+                <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="hotel.facilities.wifi"> Wifi
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="hotel.facilities.ac"> AC
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="hotel.facilities.safe"> Safe Box
+                    </label>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="hotel.facilities.hw"> Hot Water
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="hotel.facilities.tv"> Television
+                    </label>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>

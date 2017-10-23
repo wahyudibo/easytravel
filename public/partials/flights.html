@@ -1,0 +1,160 @@
+<div class="form-group">
+    <label for="origin">Origin</label>
+    <div class="row">
+        <div class="col-md-11">
+            <input
+                type="text"
+                ng-model="flight.origin"
+                placeholder="Departure Airports"
+                typeahead="airport for airport in airports($viewValue)"
+                typeahead-loading="ta.origin"
+                typeahead-min-length="3"
+                typeahead-wait-ms="500"
+                class="form-control" />
+        </div>
+        <div class="col-md-1" style="position: relative; top: 5px; left: -20px;">
+            <i ng-show="ta.origin" class="fa fa-lg fa-spinner fa-spin"></i>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label for="destination">Destination</label>
+    <div class="row">
+        <div class="col-md-11">
+            <input
+                type="text"
+                ng-model="flight.destination"
+                placeholder="Arrival Airports"
+                typeahead="airport for airport in airports($viewValue)"
+                typeahead-loading="ta.destination"
+                typeahead-min-length="3"
+                typeahead-wait-ms="500"
+                class="form-control" />
+        </div>
+        <div class="col-md-1" style="position: relative; top: 5px; left: -20px;">
+            <i ng-show="ta.destination" class="fa fa-lg fa-spinner fa-spin"></i>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <label>Flight Type</label>
+            <br />
+            <input
+            class="form-control"
+            bs-switch
+            type="checkbox"
+            ng-model="flight.type"
+            switch-active="{{ bs.isActive }}"
+            switch-size="{{ bs.size }}"
+            switch-animate="{{ bs.animate }}"
+            switch-on-text="OW"
+            switch-off-text="RT"
+            switch-on-color="{{ bs.on }}"
+            switch-off-color="{{ bs.off }}"
+            ng-true-value="'OW'"
+            ng-false-value="'RT'">
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+            <label>Priority</label>
+            <br />
+            <input
+            class="form-control"
+            bs-switch
+            type="checkbox"
+            ng-model="flight.priority"
+            switch-active="{{ bs.isActive }}"
+            switch-size="{{ bs.size }}"
+            switch-animate="{{ bs.animate }}"
+            switch-on-text="Price"
+            switch-off-text="Time"
+            switch-on-color="{{ bs.on }}"
+            switch-off-color="{{ bs.off }}"
+            ng-true-value="'price'"
+            ng-false-value="'time'">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="departDate">Depart Date</label>
+            <div class="input-group">
+                <input
+                type="text"
+                class="form-control"
+                datepicker-popup="{{ dt.format }}"
+                ng-model="flight.departDate"
+                is-open="dt.depart"
+                min-date="dt.minDate"
+                ng-click="openDatepicker($event, 'depart')"
+                />
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="returnDate">Return Date</label>
+            <div class="input-group">
+                <input
+                type="text"
+                class="form-control"
+                datepicker-popup="{{ dt.format }}"
+                ng-model="flight.returnDate"
+                is-open="dt.return"
+                min-date="dt.minRetDate"
+                ng-click="openDatepicker($event, 'return')"
+                ng-disabled="flight.type == 'OW'"
+                />
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group" ng-if="flight.priority == 'time'">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <label for="departTime">Depart Time</label>
+        <timepicker ng-model="flight.departTime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+    </div>
+    <div class="col-md-5 col-md-offset-1" ng-hide="flight.type == 'OW'">
+        <label for="returnTime">Return Time</label>
+    <timepicker ng-model="flight.returnTime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="row">
+<div class="col-md-3 col-md-offset-1">
+    <label for="adults"><i class="fa fa-male fa-2x"></i> Adult</label>
+    <select
+        class="form-control"
+        name="adults"
+        id="adults"
+        ng-model="flight.adults"
+        ng-options="number for number in [1, 2, 3, 4]"
+        ng-init="flight.adults = 1">
+    </select>
+</div>
+<div class="col-md-3">
+    <label for="children"><i class="fa fa-child fa-2x"></i> Child</label>
+    <select
+        class="form-control"
+        name="children"
+        ng-model="flight.children"
+        ng-options="number for number in [0, 1, 2, 3, 4]"
+        ng-init="flight.children = 0">
+    </select>
+</div>
+<div class="col-md-3">
+    <label for="infants"><img src="img/infant.png"> <span style="position:relative; top: 5px">Infant</span></label>
+    <select
+        class="form-control"
+        name="infants"
+        ng-model="flight.infants"
+        ng-options="number for number in [0, 1, 2, 3, 4]"
+        ng-init="flight.infants = 0">
+    </select>
+</div>
+</div>
+</div>
